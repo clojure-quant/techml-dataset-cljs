@@ -65,9 +65,12 @@
                     'clojure-quant.tmlds {'GET clojure-quant.tmlds/GET
                                           'POST clojure-quant.tmlds/POST}
                             ; 
-                    }}
+                    }
 
+ ; runtime
+ :api-routes {["tmlds/" :id ".json"] {:get clojure-quant.tmlds.handler/ds-handler-wrapped}}}
 
+ 
 
 
 

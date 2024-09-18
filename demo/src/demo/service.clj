@@ -1,8 +1,7 @@
 (ns demo.service
   (:require
    [tech.v3.dataset :as ds]
-   [clojure-quant.tmlds :as qds]
-   ))
+   [clojure-quant.tmlds :as qds]))
 
 (defn demo-ds [n]
   (ds/->dataset
@@ -26,3 +25,11 @@
 
 (-> (demo-ds 1000000)
     (qds/ds->transit-json-file "target/webly/public/1000k.json"))
+
+
+(defn serve-once-test []
+   (println "generating tml ds id 27 28 29 (serve once) ..")
+   (qds/serve-once  (demo-ds 100) "27")
+   (qds/serve-once  (demo-ds 100) "28")
+   (qds/serve-once  (demo-ds 100) "29"))
+

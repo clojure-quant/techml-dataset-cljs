@@ -10,16 +10,22 @@
 
   ; empty users because we get user-identity via oauth2 which is not included here.
   ;:permission {:start (modular.permission.core/start-permissions {})}
-
+  
   ;:clj-service {:start (clj-service.core/start-clj-services
   ;                      (clip/ref :permission)
   ;                      (clip/ref :exts))}
-
+  
   :webly {:start (webly.app.app/start-webly
                   (clip/ref :exts)
                   (deref (clip/ref :config))
                   (:profile #ref [:modular]))
           :stop (webly.app.app/stop-webly this)}
+  
+  :nrepl {:start (nrepl.server/start-server :bind "0.0.0.0" :port 9100)
+          :stop (.close this)}
+
+  
+  :dataset-generate {:start (demo.service/serve-once-test)}
 
 ;  
   }}

@@ -50,6 +50,12 @@
     [ds-url "/r/100k.json"]
     [ds-url "/r/1000k.json"]
     [ds-url "/r/bad-link.json"]
+
+    [ds-url "/api/tmlds/27.json"]
+    [ds-url "/api/tmlds/28.json"]
+    [ds-url "/api/tmlds/29.json"]
+
+
     ]])
 
 (defn page [_route]

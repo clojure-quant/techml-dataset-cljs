@@ -20,7 +20,17 @@
 ```
 
 
+# test
 
+tmlds files generated and served via resources
+```
+curl localhost:8080/r/small.json
+```
+
+tmlds files generated and served via resources
+```
+curl localhost:8080/r/small.json
+```
 
 
 
