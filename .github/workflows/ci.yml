@@ -33,7 +33,6 @@ jobs:
       env:
         CLOJARS_USERNAME: ${{ secrets.ReleaseUsername }}
         CLOJARS_PASSWORD: ${{ secrets.ReleasePassword }}
-        CODECOV_TOKEN: ${{ secrets.CodecovToken }}
       run: |
         git config --global user.email "andreas.wolfgang.bauer@gmail.com"
         git config --global user.name "awb99"

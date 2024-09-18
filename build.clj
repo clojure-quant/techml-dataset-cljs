@@ -3,7 +3,7 @@
    [clojure.tools.build.api :as b]
    [deps-deploy.deps-deploy :as dd]))
 
-(def lib 'io.github.clojure-quant/tech-ml-dataset-cljs)
+(def lib 'io.github.clojure-quant/techml-dataset-cljs)
 (def version (format "0.1.%s" (b/git-count-revs nil)))
 (def class-dir "target/classes")
 (def basis (b/create-basis {:project "deps.edn"}))
@@ -21,9 +21,9 @@
     [:developer
      [:name "clojure-quant"]]]
    [:scm
-    [:url "https://github.com/clojure-quant/tech-ml-dataset-cljs/"]
-    [:connection "scm:git:git://github.com/clojure-quant/tech-ml-dataset-cljs.git"]
-    [:developerConnection "scm:git:ssh://git@github.com/clojure-quant/tech-ml-dataset-cljs.git"]]])
+    [:url "https://github.com/clojure-quant/techml-dataset-cljs/"]
+    [:connection "scm:git:git://github.com/clojure-quant/techml-dataset-cljs.git"]
+    [:developerConnection "scm:git:ssh://git@github.com/clojure-quant/techml-dataset-cljs.git"]]])
 
 (def opts {:class-dir class-dir
            :lib lib

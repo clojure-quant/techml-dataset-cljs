@@ -1,4 +1,5 @@
-# techml-dataset-cljs [![GitHub Actions status |clojure-quant/clj-service](https://github.com/clojure-quant/techml-dataset-cljs/workflows/CI/badge.svg)](https://github.com/clojure-quant/techml-dataset-cljs/actions?workflow=CI)[![Clojars Project](https://img.shields.io/clojars/v/org.pinkgorilla/techml-dataset-cljs.svg)](https://clojars.org/org.pinkgorilla/techml-dataset-cljs)
+# techml-dataset-cljs [![GitHub Actions status |clojure-quant/techml-dataset-cljs](https://github.com/clojure-quant/techml-dataset-cljs/workflows/CI/badge.svg)](https://github.com/clojure-quant/techml-dataset-cljs/actions?workflow=CI)[![Clojars Project](https://img.shields.io/clojars/v/io.github.clojure-quant/techml-dataset-cljs.svg)](https://clojars.org/io.github.clojure-quant/techml-dataset-cljs)
+
 
 - techml-dataset-cljs allows to
 
