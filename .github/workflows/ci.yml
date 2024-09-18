@@ -31,8 +31,8 @@ jobs:
       if: success()
       # if: github.event_name == 'push'
       env:
-        CLOJARS_USERNAME: ${{ secrets.ReleaseUsername }}
-        CLOJARS_PASSWORD: ${{ secrets.ReleasePassword }}
+        CLOJARS_USERNAME: ${{ secrets.CLOJARS_USERNAME }}
+        CLOJARS_PASSWORD: ${{ secrets.CLOJARS_PASSWORD }}
       run: |
         git config --global user.email "andreas.wolfgang.bauer@gmail.com"
         git config --global user.name "awb99"
