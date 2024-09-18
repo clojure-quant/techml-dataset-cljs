@@ -10,3 +10,4 @@ karma.conf.js
 shadow-cljs.edn
 .webly
 .nrepl-port
+.calva

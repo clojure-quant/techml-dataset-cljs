@@ -12,6 +12,11 @@
   clj -X:webly:npm-install
   clj -X:webly:compile
   clj -X:webly:run
+
+  OR
+  cd demo
+  clj -X:webly:run:watch
+
 ```
 
 

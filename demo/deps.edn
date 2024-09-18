@@ -1,7 +1,7 @@
 {:paths ["src"
          "resources"]
  :deps
- {org.pinkgorilla/webly {:mvn/version "0.7.695"}
+ {org.pinkgorilla/webly {:mvn/version "0.7.696"}
   ;org.pinkgorilla/ui-tailwind {:mvn/version "0.1.8"}
   ;org.pinkgorilla/timbre {:mvn/version "0.0.7"}
   ;org.pinkgorilla/clj-service {:mvn/version "0.3.20"} ; used to discover clj-services that return a flow.
@@ -19,7 +19,7 @@
   :release-adv {:exec-args {:profile "release-adv"}}
   :static {:exec-args {:profile "static"}}
   :ci {:exec-args {:profile "ci"}}
-  :watch2 {:exec-args {:profile "watch"}}
+  :watch {:exec-args {:profile "watch"}}
   
   :run {:exec-fn modular.system/start!
         :exec-args {:profile "jetty"
