@@ -1,0 +1,27 @@
+{:paths ["src"
+         "resources"]
+ :deps
+ {org.pinkgorilla/webly {:mvn/version "0.7.695"}
+  ;org.pinkgorilla/ui-tailwind {:mvn/version "0.1.8"}
+  ;org.pinkgorilla/timbre {:mvn/version "0.0.7"}
+  ;org.pinkgorilla/clj-service {:mvn/version "0.3.20"} ; used to discover clj-services that return a flow.
+  ;org.pinkgorilla/goldly {:mvn/version "0.7.680"} ; sci-bindings for missionary and re-flow
+  ;io.github.clojure-quant/tech-ml-dataset-cljs {:mvn/version "0.3.71"}
+  io.github.clojure-quant/tech-ml-dataset-cljs {:local/root ".." :deps/manifest :deps}}
+ :aliases
+ {:webly {:exec-fn webly.app.app/webly-build
+          :exec-args {:config [{}]
+                      :profile "npm-install"}}
+
+  :npm-install {:exec-args {:profile "npm-install"}}
+  :compile {:exec-args {:profile "compile"}}
+  :release {:exec-args {:profile "release"}}
+  :release-adv {:exec-args {:profile "release-adv"}}
+  :static {:exec-args {:profile "static"}}
+  :ci {:exec-args {:profile "ci"}}
+  :watch2 {:exec-args {:profile "watch"}}
+  
+  :run {:exec-fn modular.system/start!
+        :exec-args {:profile "jetty"
+                    :config [{}]
+                    :services "services.edn"}}}}

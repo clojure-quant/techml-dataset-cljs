@@ -1,0 +1,76 @@
+{:name "techml-dataset-cljs"
+ ; build
+ :lazy true
+ ;:lazy false
+ :depends-on #{:tick
+               ;:cljs-frisk
+               ;:goog.string
+               ;:ui-repl
+               ;:ui-site
+               ;:webly-devtools
+               ;:devtools
+               }
+ :cljs-namespace [tech.v3.dataset]
+ :cljs-ns-bindings {'tech.v3.dataset {'->>dataset tech.v3.dataset/->>dataset
+                                      '->dataset tech.v3.dataset/->dataset
+                                      'column tech.v3.dataset/column
+                                      'column->data tech.v3.dataset/column->data
+                                      'column-count tech.v3.dataset/column-count
+                                      'column-map tech.v3.dataset/column-map
+                                      'column-names tech.v3.dataset/column-names
+                                      'columns tech.v3.dataset/columns
+                                      'concat tech.v3.dataset/concat
+                                      'data->column tech.v3.dataset/data->column
+                                      'data->dataset tech.v3.dataset/data->dataset
+                                      'dataset->transit-str tech.v3.dataset/dataset->transit-str
+                                      'dataset-parser tech.v3.dataset/dataset-parser
+                                      'dataset? tech.v3.dataset/dataset?
+                                      'filter tech.v3.dataset/filter
+                                      'filter-column tech.v3.dataset/filter-column
+                                      'filter-dataset tech.v3.dataset/filter-dataset
+                                      'group-by tech.v3.dataset/group-by
+                                      'group-by-column tech.v3.dataset/group-by-column
+                                      'head tech.v3.dataset/head
+                                      'intersect-missing-sets tech.v3.dataset/intersect-missing-sets
+                                      'mapseq-parser tech.v3.dataset/mapseq-parser
+                                      'mapseq-parser-rf tech.v3.dataset/mapseq-parser-rf
+                                      'merge-by-column tech.v3.dataset/merge-by-column
+                                      'missing tech.v3.dataset/missing
+                                      'remove-columns tech.v3.dataset/remove-columns
+                                      'remove-missing tech.v3.dataset/remove-missing
+                                      'remove-rows tech.v3.dataset/remove-rows
+                                      'rename-columns tech.v3.dataset/rename-columns
+                                      'replace-missing tech.v3.dataset/replace-missing
+                                      'reverse-rows tech.v3.dataset/reverse-rows
+                                      'row-at tech.v3.dataset/row-at
+                                      'row-count tech.v3.dataset/row-count
+                                      'row-map tech.v3.dataset/row-map
+                                      'rows tech.v3.dataset/rows
+                                      'rowvec-at tech.v3.dataset/rowvec-at
+                                      'rowvecs tech.v3.dataset/rowvecs
+                                      'select tech.v3.dataset/select
+                                      'select-columns tech.v3.dataset/select-columns
+                                      'select-missing tech.v3.dataset/select-missing
+                                      'select-rows tech.v3.dataset/select-rows
+                                      'soft-select-columns tech.v3.dataset/soft-select-columns
+                                      'sort-by tech.v3.dataset/sort-by
+                                      'sort-by-column tech.v3.dataset/sort-by-column
+                                      'transit-read-handler-map tech.v3.dataset/transit-read-handler-map
+                                      'transit-str->dataset tech.v3.dataset/transit-str->dataset
+                                      'transit-write-handler-map tech.v3.dataset/transit-write-handler-map
+                                      'union-missing-sets tech.v3.dataset/union-missing-sets
+                                      'unique-by tech.v3.dataset/unique-by
+                                      'unique-by-column tech.v3.dataset/unique-by-column
+                                      'update tech.v3.dataset/update}}}
+
+
+
+
+
+
+
+
+
+
+
+
