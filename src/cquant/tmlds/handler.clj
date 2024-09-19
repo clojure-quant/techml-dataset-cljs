@@ -7,7 +7,7 @@
    ;muuntaja.middleware :refer [wrap-format]] ; 30x faster than ring.middleware.format
    [ring.middleware.gzip :refer [wrap-gzip]]
    [tech.v3.libs.muuntaja :refer [wrap-format-java-time]]
-   [clojure-quant.tmlds :refer [load-once]]))
+   [cquant.tmlds :refer [load-once]]))
 
 (defn ds-handler [{:keys [route-params] :as _req} ]
   (let [id (:id route-params)
