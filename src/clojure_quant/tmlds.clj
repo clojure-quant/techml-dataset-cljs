@@ -1,7 +1,8 @@
 (ns clojure-quant.tmlds
   (:require
    [nano-id.core :refer [nano-id]]
-   [tech.v3.libs.transit :as tech-transit]
+   ;[tech.v3.libs.transit :as tech-transit]
+   [tech.v3.libs.clj-transit :as tech-transit]
    [tech.v3.io :as io]))
 
 (defn ds->transit-json-file

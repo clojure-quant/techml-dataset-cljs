@@ -3,7 +3,9 @@
  {org.clojure/clojure    {:mvn/version "1.11.3"}
   nano-id/nano-id {:mvn/version "1.1.0"}
   funcool/promesa {:mvn/version "11.0.674"}
-  com.cnuernber/tmdjs {:mvn/version "2.000-beta-10"}}
+  com.cnuernber/tmdjs {:mvn/version "2.000-beta-10"}
+  scicloj/tablecloth {:mvn/version "7.029.2"} ; newer version
+  }
  :aliases
  {; github ci  
   :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.6"}

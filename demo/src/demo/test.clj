@@ -1,32 +1,15 @@
 (ns demo.test
-  (:require
-   [missionary.core :as m]
-   [taoensso.timbre :refer [info error]]))
-
-(defn publish!
-  [push! flow]
-  (let [rf (fn [r v]
-             (info "pushing value: " v)
-             ;(push! v)
-             r)]
-    (m/reduce rf nil flow)))
+ (:require
+ [tech.v3.dataset :as ds]
+ [clojure-quant.tmlds :as qds]))
 
 
-(def flow (m/seed [1 2 3 4 5]))
 
+(defn demo-ds [n]
+  (ds/->dataset
+   {:a (range n)
+    :b (take n (cycle [:a :b :c]))
+    :c (take n (cycle ["one" "two" "three"]))}))
 
-(def task (publish! nil flow))
-
-(def dispose! (task  #(prn ::success %)
-                     #(prn ::crash %)))
-
-
-task
-
-(type task)
-
-(class task)
-
-(fn? task)
-
-(info "saving task..")
+(-> (demo-ds 100)
+    (qds/ds->transit-json-file "target/webly/public/dstest.transit-json"))
