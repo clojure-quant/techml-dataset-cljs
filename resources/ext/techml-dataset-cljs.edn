@@ -56,7 +56,9 @@
                                       'unique-by-column tech.v3.dataset/unique-by-column
                                       'update tech.v3.dataset/update}
                     'cquant.tmlds {'GET cquant.tmlds/GET
-                                   'POST cquant.tmlds/POST}
+                                   'POST cquant.tmlds/POST
+                                   'ds-txt cquant.tmlds/ds-txt
+                                   }
                             ; 
                     }
 
