@@ -1,7 +1,7 @@
 (ns demo.test
  (:require
  [tech.v3.dataset :as ds]
- [clojure-quant.tmlds :as qds]))
+ [cquant.tmlds :as qds]))
 
 
 

@@ -1,4 +1,4 @@
-(ns clojure-quant.tmlds
+(ns cquant.tmlds
   (:require
    [promesa.core :as p]
    [tech.v3.libs.cljs-ajax :as techml-ajax]))

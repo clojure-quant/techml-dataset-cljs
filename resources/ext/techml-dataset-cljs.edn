@@ -1,16 +1,9 @@
 {:name "techml-dataset-cljs"
  ; build
- :lazy true
- ;:lazy false
- :depends-on #{:tick
-               ;:cljs-frisk
-               ;:goog.string
-               ;:ui-repl
-               ;:ui-site
-               ;:webly-devtools
-               ;:devtools
-               }
- :cljs-namespace [tech.v3.dataset]
+ :lazy true ; needs to be lazy as it depends on a lazy module
+ :depends-on #{:tick}
+ :cljs-namespace [tech.v3.dataset
+                  cquant.tmlds]
  :cljs-ns-bindings {'tech.v3.dataset {'->>dataset tech.v3.dataset/->>dataset
                                       '->dataset tech.v3.dataset/->dataset
                                       'column tech.v3.dataset/column
@@ -62,13 +55,13 @@
                                       'unique-by tech.v3.dataset/unique-by
                                       'unique-by-column tech.v3.dataset/unique-by-column
                                       'update tech.v3.dataset/update}
-                    'clojure-quant.tmlds {'GET clojure-quant.tmlds/GET
-                                          'POST clojure-quant.tmlds/POST}
+                    'cquant.tmlds {'GET cquant.tmlds/GET
+                                   'POST cquant.tmlds/POST}
                             ; 
                     }
 
  ; runtime
- :api-routes {["tmlds/" :id ".json"] {:get clojure-quant.tmlds.handler/ds-handler-wrapped}}}
+ :api-routes {["tmlds/" :id ".json"] {:get cquant.tmlds.handler/ds-handler-wrapped}}}
 
  
 

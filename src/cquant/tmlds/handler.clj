@@ -1,4 +1,4 @@
-(ns clojure-quant.tmlds.handler
+(ns cquant.tmlds.handler
   (:require
    [ring.util.response :as response]
    [ring.middleware.params :refer [wrap-params]]

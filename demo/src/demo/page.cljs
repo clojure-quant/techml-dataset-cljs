@@ -3,7 +3,7 @@
    [reagent.core :as r]
    [promesa.core :as p]
    [tech.v3.dataset :as ds]
-   [clojure-quant.tmlds :refer [GET]]
+   [cquant.tmlds :refer [GET]]
    [demo.text :refer [text]]))
 
 (defn ds-txt [ds]

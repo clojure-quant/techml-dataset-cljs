@@ -1,7 +1,7 @@
 (ns demo.service
   (:require
    [tech.v3.dataset :as ds]
-   [clojure-quant.tmlds :as qds]))
+   [cquant.tmlds :as qds]))
 
 (defn demo-ds [n]
   (ds/->dataset
