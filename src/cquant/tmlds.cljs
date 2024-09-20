@@ -2,8 +2,7 @@
   (:require
    [promesa.core :as p]
    [tech.v3.libs.cljs-ajax :as techml-ajax]
-   [cquant.text :refer [text]]
-   ))
+   [cquant.text :refer [text]]))
 
 (defn wrap-promise
   [AJAX-TYPE url params]
@@ -31,7 +30,7 @@
   (with-out-str
     (println ds)))
 
-(defn ds-txt 
+(defn ds-txt
   "renders a techml dataset as text in the browser"
   [ds]
   [text (ds->txt ds)])
