@@ -1,5 +1,5 @@
 (ns cquant.transit
-  (:require 
+  (:require
    [tech.v3.dataset :as ds]
    [tech.v3.datatype.datetime :as dtype-dt]
    [java.time :refer [LocalDate Instant]]
@@ -12,7 +12,6 @@
   [datatype tag read-fn write-fn]
   (swap! write-handlers* assoc datatype (t/write-handler (constantly tag) write-fn))
   (swap! read-handlers* assoc tag read-fn))
-
 
 (defn add-java-time-handlers!
   "Add handlers for java.time.LocalDate and java.time.Instant"
@@ -30,7 +29,6 @@
   (let [writer (t/writer :json {:handlers @write-handlers*})]
     (t/write writer data)))
 
-
 (defn read-transit [data]
   (let [reader (t/reader :json {:handlers @read-handlers*})]
-     (t/read reader data)))
+    (t/read reader data)))

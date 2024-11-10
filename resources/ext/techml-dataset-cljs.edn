@@ -62,6 +62,7 @@
                     'cquant.transit {'write-transit cquant.transit/write-transit
                                      'read-transit cquant.transit/read-transit}
                             ; 
+                    'dali.transform.transit {'load-transit dali.transform.transit/load-transit}
                     }
 
  ; runtime

@@ -14,15 +14,13 @@
   (with-open [ins (io/input-stream fname)]
     (tech-transit/transit->dataset ins :json tech-transit/java-time-write-handlers)))
 
-
 (defonce ds-cache (atom {}))
 
-(defn serve-once 
+(defn serve-once
   ([ds]
    (serve-once (nano-id 5)))
   ([ds id]
    (swap! ds-cache assoc id ds)))
-    
 
 (defn load-once [id]
   (let [ds (get @ds-cache id)]

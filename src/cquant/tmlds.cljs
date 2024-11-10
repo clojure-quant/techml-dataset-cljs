@@ -23,7 +23,6 @@
   ([url] (POST url {}))
   ([url params] (wrap-promise techml-ajax/POST url params)))
 
-
 ;; perhaps we want to use cols->str
 
 (defn ds->txt [ds]

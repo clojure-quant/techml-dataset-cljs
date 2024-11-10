@@ -9,7 +9,7 @@
    [tech.v3.libs.muuntaja :refer [wrap-format-java-time]]
    [cquant.tmlds :refer [load-once]]))
 
-(defn ds-handler [{:keys [route-params] :as _req} ]
+(defn ds-handler [{:keys [route-params] :as _req}]
   (let [id (:id route-params)
         _ (println "DS HANDLER ID: " id)
         ds (when id (load-once id))]
@@ -23,10 +23,9 @@
       ;(wrap-defaults api-defaults)
       (wrap-keyword-params)
       (wrap-params)
-      (wrap-format-java-time) 
+      (wrap-format-java-time)
       ;(wrap-format muuntaja)
       ;(wrap-json-response)
       (wrap-gzip)
-      (wrap-fallback-exception)
-      ))
+      (wrap-fallback-exception)))
 
