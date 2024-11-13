@@ -12,7 +12,7 @@
 (defn transit-json-file->ds
   [fname]
   (with-open [ins (io/input-stream fname)]
-    (tech-transit/transit->dataset ins :json tech-transit/java-time-write-handlers)))
+    (tech-transit/transit->dataset ins :json tech-transit/java-time-read-handlers)))
 
 (defonce ds-cache (atom {}))
 
