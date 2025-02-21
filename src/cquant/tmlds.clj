@@ -24,6 +24,6 @@
 
 (defn load-once [id]
   (let [ds (get @ds-cache id)]
-    (println "ds: " ds)
+    (println "cquant.tmlds/load-once ds: " ds)
     (swap! ds-cache dissoc id)
     ds))

@@ -9,22 +9,17 @@
     :b (take n (cycle [:a :b :c]))
     :c (take n (cycle ["one" "two" "three"]))}))
 
-
-(defn a-seed []
-  [1 2 3 4 5])
-
-
 (-> (demo-ds 100)
-    (qds/ds->transit-json-file "target/webly/public/small.json"))
+    (qds/ds->transit-json-file ".gorilla/public/small.json"))
  
 (-> (demo-ds 10000)
-    (qds/ds->transit-json-file "target/webly/public/10k.json"))
+    (qds/ds->transit-json-file ".gorilla/public/10k.json"))
 
 (-> (demo-ds 100000)
-    (qds/ds->transit-json-file "target/webly/public/100k.json"))
+    (qds/ds->transit-json-file ".gorilla/public/100k.json"))
 
 (-> (demo-ds 1000000)
-    (qds/ds->transit-json-file "target/webly/public/1000k.json"))
+    (qds/ds->transit-json-file ".gorilla/public/1000k.json"))
 
 
 (defn serve-once-test []

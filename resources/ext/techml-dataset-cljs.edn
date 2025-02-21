@@ -4,7 +4,8 @@
  :depends-on #{:tick}
  :cljs-namespace [tech.v3.dataset
                   cquant.tmlds
-                  cquant.transit]
+                  cquant.transit
+                  dali.transform.transit]
  :cljs-ns-bindings {'tech.v3.dataset {'->>dataset tech.v3.dataset/->>dataset
                                       '->dataset tech.v3.dataset/->dataset
                                       'column tech.v3.dataset/column
@@ -66,7 +67,18 @@
                     }
 
  ; runtime
- :api-routes {["tmlds/" :id ".json"] {:get cquant.tmlds.handler/ds-handler-wrapped}}}
+ ;:api-routes {["tmlds/" :id ".json"] {:get cquant.tmlds.handler/ds-handler-wrapped}}
+ 
+ :web/routes [["/api/tmlds/{id}.json" {;Path Param: :provider will be extracted and passed to user-handler under :path-params.
+                                      :handler  cquant.tmlds.handler/ds-handler
+                                      :middleware [ring.middleware.keyword-params/wrap-keyword-params
+                                                   ring.middleware.params/wrap-params
+                                                   tech.v3.libs.muuntaja/wrap-format-java-time
+                                                   ring.middleware.gzip/wrap-gzip
+                                                   ]}]]
+ 
+ 
+ }
 
  
 

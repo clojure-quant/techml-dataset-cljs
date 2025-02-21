@@ -5,7 +5,8 @@
   funcool/promesa {:mvn/version "11.0.674"}
   scicloj/tablecloth {:mvn/version "7.029.2"} ; ensure clj-transit is there for sure.
   com.cnuernber/tmdjs {:mvn/version "2.000-beta-10"}
-  org.pinkgorilla/dali {:mvn/version "0.1.30"}}
+  org.pinkgorilla/dali {:mvn/version "0.2.31"}
+  }
  :aliases
  {; github ci  
   :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.6"}
