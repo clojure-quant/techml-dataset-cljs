@@ -20,14 +20,14 @@
       (response/not-found nil))))
 
 #_(def ds-handler-wrapped
-  (-> ds-handler ; middlewares execute from bottom -> up
+    (-> ds-handler ; middlewares execute from bottom -> up
       ;(wrap-anti-forgery)
       ;(wrap-defaults api-defaults)
-      (wrap-keyword-params)
-      (wrap-params)
-      (wrap-format-java-time)
+        (wrap-keyword-params)
+        (wrap-params)
+        (wrap-format-java-time)
       ;(wrap-format muuntaja)
       ;(wrap-json-response)
-      (wrap-gzip)
-      (wrap-fallback-exception)))
+        (wrap-gzip)
+        (wrap-fallback-exception)))
 

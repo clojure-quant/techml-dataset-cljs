@@ -1,7 +1,8 @@
 {:paths ["src"
          "resources"]
  :deps
- {org.pinkgorilla/webly {:mvn/version "0.9.717"}
+ {org.pinkgorilla/webly {:mvn/version "0.9.720"}
+  org.pinkgorilla/ui-repl {:mvn/version "0.1.112"}
   io.github.clojure-quant/tech-ml-dataset-cljs {:local/root ".." :deps/manifest :deps}
   ; run by default in services
   nrepl/nrepl {:mvn/version "1.2.0"}
@@ -13,7 +14,13 @@
                       :profile "npm-install"}}
 
   :npm-install {:exec-args {:profile "npm-install"}}
-  :compile {:exec-args {:profile "compile"}}
+  :compile {:exec-args {:profile "compile"
+                        :config [{:extension {:disabled #{"ui-tailwind"
+                                                          "missionary-sci"
+                                                          "dali-flowy"
+                                                          "flowy"
+                                                          }}}]
+                        }}
   :release {:exec-args {:profile "release"}}
   :release-adv {:exec-args {:profile "release-adv"}}
   :static {:exec-args {:profile "static"}}
@@ -22,5 +29,8 @@
   
   :run {:exec-fn modular.system/start!
         :exec-args {:profile "jetty"
-                    :config [{}]
+                    :config [{:extension {:disabled #{"ui-tailwind"
+                                                      "missionary-sci"
+                                                      "dali-flowy"
+                                                      "flowy"}}}]
                     :services "services.edn"}}}}
