@@ -12,3 +12,8 @@ shadow-cljs.edn
 .nrepl-port
 .calva
 .gorilla
+binaries/
+classes
+*.ddb
+*.ddb.wal
+*.nippy.gz

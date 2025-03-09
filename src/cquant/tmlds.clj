@@ -2,7 +2,16 @@
   (:require
    [nano-id.core :refer [nano-id]]
    [tech.v3.libs.clj-transit :as tech-transit]
-   [tech.v3.io :as io]))
+   [tech.v3.io :as io]
+   [tech.v3.dataset.column :as col]
+   [tablecloth.api :as tc]))
+
+(defn clone-ds [d]
+  (->> (tc/column-names d)
+       (map (fn [col-n]
+              [col-n (col/clone (get d col-n))]))
+       (into {})
+       (tc/dataset)))
 
 (defn ds->transit-json-file
   [ds fname]
