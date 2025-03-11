@@ -1,7 +1,7 @@
 {:name "demo"
  ; build
  :lazy true ; must be true, since it depends on techml-dataset-cljs
- ;:depends-on #{:techml-dataset-cljs}
+ :depends-on #{:techml-dataset-cljs}
  :cljs-namespace [demo.page]
  :cljs-ns-bindings {'demo.page {'page demo.page/page}}
  ;runtime

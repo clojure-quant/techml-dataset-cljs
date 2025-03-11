@@ -1,6 +1,6 @@
 {:name "techml-dataset-cljs"
  ; build
- :lazy false ; needs to be lazy as it depends on a lazy module
+ :lazy true ; needs to be lazy as it depends on a lazy module
  ;:depends-on #{:tick}
  :cljs-namespace [tech.v3.dataset
                   cquant.tmlds]
