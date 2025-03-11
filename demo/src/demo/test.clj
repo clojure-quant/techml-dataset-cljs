@@ -2,11 +2,8 @@
   (:require
    [tick.core :as t]
    [tech.v3.dataset :as ds]
-   [cquant.tmlds :as qds]
-   [tech.v3.io :as io]
-   [tech.v3.libs.clj-transit :as tech-transit]
-    [tech.v3.datatype.datetime :as dtype-dt]
-   ))
+   [tech.v3.datatype.datetime :as dtype-dt]
+   [transit.io :refer [encode]]))
 
 (defn demo-ds [n]
   (ds/->dataset
@@ -14,8 +11,11 @@
     :b (take n (cycle [:a :b :c]))
     :c (take n (cycle ["one" "two" "three"]))}))
 
+(defn spit-ds [ds filename]
+  (spit filename (encode ds)))
+
 (-> (demo-ds 100)
-    (qds/ds->transit-json-file "target/webly/public/dstest.transit-json"))
+    (spit-ds "target/webly/public/dstest.transit-json"))
 
 
 (def dt (t/instant))
@@ -23,9 +23,9 @@
 dt
 ;; => #time/instant "2024-11-13T02:30:04.750623060Z"
 
-(qds/ds->transit-json-file dt ".webly/dt.transit-json")
+(spit-ds dt ".webly/dt.transit-json")
 
-(qds/transit-json-file->ds ".webly/dt.transit-json")
+(spit-ds ".webly/dt.transit-json")
 
 
 
@@ -52,33 +52,8 @@ dsdt
 ;;    | 2024-11-13T02:42:49.219519Z |
 
 
-(ds->transit-json-file2 dsdt ".webly/dsdt2.transit-json")
+(spit-ds dsdt ".webly/dsdt2.transit-json")
 
-(transit-json-file->ds2 ".webly/dsdt2.transit-json")
-;; => _unnamed [1 1]:
-;;    
-;;    |                         :dt |
-;;    |-----------------------------|
-;;    | 1970-01-21T00:57:45.769219Z |
-
-
-
-(qds/ds->transit-json-file dsdt ".webly/dsdt.transit-json")
-
-(qds/transit-json-file->ds ".webly/dsdt.transit-json")
-
-
-
-
-
-(-> (t/instant "1970-01-21T00:57:45.769219Z")
-    (t/long))
-;; => 1731465
-
-
-(-> (t/instant "2024-11-13T02:42:49.219519Z")
-    (t/long))
-;; => 1731465769
 
 
 

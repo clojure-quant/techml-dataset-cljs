@@ -3,7 +3,7 @@
    [reagent.core :as r]
    [promesa.core :as p]
    [tech.v3.dataset :as ds]
-   [cquant.tmlds :refer [GET]]
+   [transit.cljs-ajax :as transit-ajax]
    [demo.text :refer [text]]))
 
 (defn ds-txt [ds]
@@ -21,7 +21,7 @@
 (defn ds-url [url]
   (let [ds-a (r/atom nil)
         load-ds (fn [& _]
-                  (-> (GET url)
+                  (-> (transit-ajax/GET url)
                       (p/then (fn [ds]
                                 (reset! ds-a ds)))
                       (p/catch (fn [err]
@@ -51,9 +51,9 @@
     [ds-url "/r/1000k.json"]
     [ds-url "/r/bad-link.json"]
 
-    [ds-url "/api/tmlds/27.json"]
-    [ds-url "/api/tmlds/28.json"]
-    [ds-url "/api/tmlds/29.json"]
+    [ds-url "/dali/27.json"]
+    [ds-url "/dali/28.json"]
+    [ds-url "/dali/29.json"]
 
 
     ]])

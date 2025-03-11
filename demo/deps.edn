@@ -1,8 +1,8 @@
 {:paths ["src"
          "resources"]
  :deps
- {org.pinkgorilla/webly {:mvn/version "0.9.720"}
-  org.pinkgorilla/ui-repl {:mvn/version "0.1.112"}
+ {org.pinkgorilla/webly {:mvn/version "0.9.721"}
+  org.pinkgorilla/ui-repl {:mvn/version "0.1.112"} ; transit-tick encoder in cljs
   io.github.clojure-quant/tech-ml-dataset-cljs {:local/root ".." :deps/manifest :deps}
   ; run by default in services
   nrepl/nrepl {:mvn/version "1.2.0"}

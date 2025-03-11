@@ -1,9 +1,15 @@
 {:name "demo"
  ; build
  :lazy true ; must be true, since it depends on techml-dataset-cljs
- :depends-on #{:techml-dataset-cljs}
+ ;:depends-on #{:techml-dataset-cljs}
  :cljs-namespace [demo.page]
  :cljs-ns-bindings {'demo.page {'page demo.page/page}}
  ;runtime
  :cljs-routes {"" demo.page/page}
+
+ ;:flowy [{:fun demo.service.counter/counter-fn :mode :ap}
+ ;        {:fun demo.service.employee/best-employee :mode :clj :fixed :dali-store}
+ ;        {:fun demo.service.saying/saying :mode :clj}]
+ 
+
  }

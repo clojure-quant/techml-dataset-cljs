@@ -9,6 +9,13 @@
 
   :exts {:start (extension/discover (:extension (clip/ref :config)))}
 
+  :transit-tick {:start (transit.type.tick/add-tick-handlers!)}
+  :transit-ds {:start (transit.type.techml/add-techml-dataset-handlers!)}
+
+  ;; data
+  :dataset-generate {:start (demo.service/serve-once-test)}
+  
+  ; webserver
   
   :webly {:start (webly.spa/start-webly
                   {:exts (clip/ref :exts)}
@@ -16,10 +23,11 @@
                   (:profile #ref [:modular]))
           :stop (webly.spa/stop-webly this)}
   
+  ; repl
   :nrepl {:start (nrepl.server/start-server :bind "0.0.0.0" :port 9100)
           :stop (.close this)}
   
-  :dataset-generate {:start (demo.service/serve-once-test)}
+  
 
 ;  
   }}
