@@ -1,6 +1,12 @@
 # techml-dataset-cljs [![GitHub Actions status |clojure-quant/techml-dataset-cljs](https://github.com/clojure-quant/techml-dataset-cljs/workflows/CI/badge.svg)](https://github.com/clojure-quant/techml-dataset-cljs/actions?workflow=CI)[![Clojars Project](https://img.shields.io/clojars/v/io.github.clojure-quant/techml-dataset-cljs.svg)](https://clojars.org/io.github.clojure-quant/techml-dataset-cljs)
 
 
+- adds techml dataset encoding to transit-io, making datasets encoding via transit possible
+  - in browser this is done on start of webly bootstrap automatically
+  - in clj you need to call cquant.transit/ 
+
+
+
 - adds tml-dataset in the browser
 - save/load datasets in transit format
 - serve datasets via ring-handler

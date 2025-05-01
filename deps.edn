@@ -1,15 +1,17 @@
 {:paths ["src" "resources"]
  :deps
- {org.clojure/clojure    {:mvn/version "1.11.3"}
+ {org.clojure/clojure    {:mvn/version "1.12.0"}
   nano-id/nano-id {:mvn/version "1.1.0"}
   funcool/promesa {:mvn/version "11.0.674"}
   scicloj/tablecloth {:mvn/version "7.042"} ; ensure clj-transit is there for sure.
   techascent/tech.ml.dataset {:mvn/version "7.052"} ; use latest version of techml, tablecloth sometimes falls behind
   com.cnuernber/tmdjs {:mvn/version "2.002"} ; https://github.com/cnuernber/tmdjs
   ; ham-scripted is a dep of tmdjs, but since clojars artefact cannot have git deps, we need to include it here.
-  com.cnuernber/ham-scripted {:git/url "https://github.com/cnuernber/ham-scripted"
-                              :sha "36b657d7bdf3d6e168cb083897efbfa9021333da"}
-  org.pinkgorilla/dali {:mvn/version "0.5.33"}
+  ;com.cnuernber/ham-scripted {:git/url "https://github.com/cnuernber/ham-scripted"
+  ;                            :sha "36b657d7bdf3d6e168cb083897efbfa9021333da"}
+  ; we cannot include the deps.end sha version, as clojars artefact would ignore this dependency.
+  io.github.clojure-quant/ham-scripted {:mvn/version "0.0.44"}
+  org.pinkgorilla/dali {:mvn/version "0.5.37"}
   }
  :aliases
  {; github ci  
