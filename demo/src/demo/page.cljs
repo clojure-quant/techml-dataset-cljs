@@ -51,6 +51,8 @@
     [ds-url "/r/1000k.json"]
     [ds-url "/r/bad-link.json"]
 
+    [ds-url "/r/roaring.json"]
+
     [ds-url "/dali/27.json"]
     [ds-url "/dali/28.json"]
     [ds-url "/dali/29.json"]

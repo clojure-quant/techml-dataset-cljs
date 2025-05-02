@@ -1,0 +1,17 @@
+{:name "techml-transit"
+ ; build
+ :lazy true ; not lazy, as encoding must be loaded on start.
+ :depends-on #{:techml-dataset-cljs}
+ :cljs-namespace [cquant.transit.techml
+                  cquant.config]
+ :cljs-ns-bindings {'cquant.transit.techml {'add-techml-dataset-handlers! cquant.transit.techml/add-techml-dataset-handlers!}
+                    'cquant.config {'start-techml-transit cquant.config/start-techml-transit}}
+ ; this ext exists, so that on startup the transit-encoding handlers for datasets are added
+ ; cquant.config/start-techml-transit produces this side-effect.
+  ; runtime
+ :cljs-service {:config-fn cquant.config/config-techml ; build  config
+                :start-fn cquant.config/start-techml-transit} ; start cljs service
+ 
+ 
+
+ }

@@ -2,8 +2,10 @@
   (:require
    [tick.core :as t]
    [tech.v3.dataset :as ds]
+   [tech.v3.dataset :as ds]
+   [tablecloth.api :as tc]
    [tech.v3.datatype.datetime :as dtype-dt]
-   [transit.io :refer [encode]]))
+   [transit.io :refer [encode decode]]))
 
 (defn demo-ds [n]
   (ds/->dataset
@@ -14,19 +16,24 @@
 (defn spit-ds [ds filename]
   (spit filename (encode ds)))
 
-(-> (demo-ds 100)
-    (spit-ds "target/webly/public/dstest.transit-json"))
+(defn slurp-ds [filename]
+  (-> (slurp filename)
+      (decode)))
 
+
+(-> (demo-ds 100)
+    (spit-ds ".gorilla/public/dstest.transit-json"))
+
+(slurp-ds ".gorilla/public/dstest.transit-json")
 
 (def dt (t/instant))
 ;; => #'demo.test/dt
 dt
 ;; => #time/instant "2024-11-13T02:30:04.750623060Z"
 
-(spit-ds dt ".webly/dt.transit-json")
+(spit-ds dt ".gorilla/dt.transit-json")
 
-(spit-ds ".webly/dt.transit-json")
-
+(spit-ds ".gorilla/dt.transit-json")
 
 
 
@@ -52,12 +59,12 @@ dsdt
 ;;    | 2024-11-13T02:42:49.219519Z |
 
 
-(spit-ds dsdt ".webly/dsdt2.transit-json")
+(spit-ds dsdt ".gorilla/dsdt2.transit-json")
 
 
 
 
-  (defn master-ds
+(defn master-ds
   []
   (ds/->dataset {:a (mapv double (range 5))
                  :b (repeat 5 :a)
@@ -85,8 +92,8 @@ dsdt
 
 
 (-> (master-ds)
-    (tech-transit/dataset->transit-str)
-    (tech-transit/transit-str->dataset))
+    (encode)
+    (decode))
 ;; => _unnamed [5 10]:
 ;;    
 ;;    |      :e |                          :g |  :c | :j |    :h | :b |           :d |         :f |   :i |  :a |
@@ -97,3 +104,19 @@ dsdt
 ;;    | [1 2 3] | 1970-01-21T00:58:19.924669Z | hey |    |  true | :a | {:a 1, :b 2} | 2024-11-13 | text | 3.0 |
 ;;    |         | 1970-01-21T00:58:19.924669Z | hey |  3 | false | :a | {:a 1, :b 2} | 2024-11-13 | text | 4.0 |
 
+
+
+(defn sanitize-date [ds]
+  (tc/convert-types ds {:date [:instant #(t/instant %)]}))
+
+(def ds-instant
+  (-> (tc/dataset {:date [(t/zoned-date-time)]
+                   :a [1]
+                   :b [2.0]})
+      (sanitize-date)))
+
+ds-instant
+
+(-> ds-instant
+    (encode)
+    (decode))

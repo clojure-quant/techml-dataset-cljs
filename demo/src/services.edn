@@ -10,7 +10,7 @@
   :exts {:start (extension/discover (:extension (clip/ref :config)))}
 
   :transit-tick {:start (transit.type.tick/add-tick-handlers!)}
-  :transit-ds {:start (transit.type.techml/add-techml-dataset-handlers!)}
+  :transit-ds {:start (cquant.transit.techml/add-techml-dataset-handlers!)}
 
   ;; data
   :dataset-generate {:start (demo.service/serve-once-test)}

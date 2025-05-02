@@ -3,6 +3,8 @@
    [tech.v3.dataset :as ds]
    [transit.io :refer [encode]]
    [dali.store.cache :refer [store-once]]
+     [tablecloth.api :as tc]
+   [tick.core :as t]
    ))
 
 (defn demo-ds [n]
@@ -25,6 +27,19 @@
 
 (-> (demo-ds 1000000)
     (spit-ds ".gorilla/public/1000k.json"))
+
+
+
+(defn sanitize-date [ds]
+  (tc/convert-types ds {:date [:instant #(t/instant %)]}))
+
+(def ds-instant
+  (-> (tc/dataset {:date [(t/zoned-date-time)]
+                   :a [1]
+                   :b [2.0]})
+      (sanitize-date)))
+
+(spit-ds ds-instant ".gorilla/public/roaring.json")
 
 
 (defn serve-once-test []

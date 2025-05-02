@@ -11,6 +11,7 @@
   ;                            :sha "36b657d7bdf3d6e168cb083897efbfa9021333da"}
   ; we cannot include the deps.end sha version, as clojars artefact would ignore this dependency.
   io.github.clojure-quant/ham-scripted {:mvn/version "0.0.44"}
+  org.pinkgorilla/transit-ajax {:mvn/version "0.1.10"}
   org.pinkgorilla/dali {:mvn/version "0.5.37"}
   }
  :aliases
