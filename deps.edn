@@ -12,7 +12,7 @@
   ;                            :sha "36b657d7bdf3d6e168cb083897efbfa9021333da"}
   ; we cannot include the deps.end sha version, as clojars artefact would ignore this dependency.
   io.github.clojure-quant/ham-scripted {:mvn/version "0.0.44"}
-  org.pinkgorilla/transit-ajax {:mvn/version "0.1.10"}
+  org.pinkgorilla/transit-ajax {:mvn/version "0.1.11"}
   org.pinkgorilla/dali {:mvn/version "0.5.37"}
   }
  :aliases
@@ -20,8 +20,12 @@
   :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.6"}
                  slipset/deps-deploy {:mvn/version "0.2.1"}}
           :ns-default build}
-  :test {:extra-paths ["test"]
-         :extra-deps {io.github.cognitect-labs/test-runner {:git/url "https://github.com/cognitect-labs/test-runner.git"
-                                                            :sha "9e35c979860c75555adaff7600070c60004a0f44"}}
-         :main-opts ["-m" "cognitect.test-runner"]
-         :exec-fn cognitect.test-runner.api/test}}}
+  
+  :test-clj {:extra-paths ["test"]
+             :extra-deps {io.github.cognitect-labs/test-runner
+                          {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                           :sha "cc75980b43011773162b485f46f939dc5fba91e4"}}
+             :main-opts ["-m" "cognitect.test-runner"]
+             :exec-fn cognitect.test-runner.api/test}
+  
+  }}
